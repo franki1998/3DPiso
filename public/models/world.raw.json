@@ -1,0 +1,705 @@
+{
+  "version": 1,
+  "units": "meters",
+  "parameters": {
+    "CEILING_HEIGHT": 2.6,
+    "INTERIOR_WALL_THICKNESS": 0.1,
+    "EXTERIOR_WALL_THICKNESS": 0.12,
+    "DOOR_HEIGHT": 2.1,
+    "WINDOW_HEIGHT": 1.2,
+    "WINDOW_SILL_HEIGHT": 0.9,
+    "PLAYER_HEIGHT": 1.8,
+    "CAMERA_HEIGHT": 1.7,
+    "PLAYER_RADIUS": 0.2
+  },
+  "outer": [
+    [
+      0,
+      -5
+    ],
+    [
+      8,
+      -5
+    ],
+    [
+      8,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "rooms": [
+    {
+      "id": "bedroom-1",
+      "name": "Dormitorio 1",
+      "polygon": [
+        [
+          0,
+          -5
+        ],
+        [
+          3,
+          -5
+        ],
+        [
+          3,
+          -3
+        ],
+        [
+          0,
+          -3
+        ]
+      ],
+      "spawn": [
+        2.6,
+        -4.0
+      ],
+      "areaOfficial": 6.0,
+      "areaModel": 6.0,
+      "dimensions": [
+        3,
+        2
+      ],
+      "confidence": "Demo ficticia"
+    },
+    {
+      "id": "bedroom-2",
+      "name": "Dormitorio 2",
+      "polygon": [
+        [
+          0,
+          -3
+        ],
+        [
+          3,
+          -3
+        ],
+        [
+          3,
+          -1.5
+        ],
+        [
+          0,
+          -1.5
+        ]
+      ],
+      "spawn": [
+        2.6,
+        -2.25
+      ],
+      "areaOfficial": 4.5,
+      "areaModel": 4.5,
+      "dimensions": [
+        3,
+        1.5
+      ],
+      "confidence": "Demo ficticia"
+    },
+    {
+      "id": "bedroom-3",
+      "name": "Dormitorio 3",
+      "polygon": [
+        [
+          0,
+          -1.5
+        ],
+        [
+          3,
+          -1.5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "spawn": [
+        2.55,
+        -0.75
+      ],
+      "areaOfficial": 4.5,
+      "areaModel": 4.5,
+      "dimensions": [
+        3,
+        1.5
+      ],
+      "confidence": "Demo ficticia"
+    },
+    {
+      "id": "bedroom-4",
+      "name": "Estudio",
+      "polygon": [
+        [
+          3,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          -2
+        ],
+        [
+          3,
+          -2
+        ]
+      ],
+      "spawn": [
+        3.45,
+        -1.5
+      ],
+      "areaOfficial": 4.0,
+      "areaModel": 4.0,
+      "dimensions": [
+        2,
+        2
+      ],
+      "confidence": "Demo ficticia"
+    },
+    {
+      "id": "hallway",
+      "name": "Pasillo",
+      "polygon": [
+        [
+          3,
+          -2
+        ],
+        [
+          5,
+          -2
+        ],
+        [
+          5,
+          -5
+        ],
+        [
+          3,
+          -5
+        ]
+      ],
+      "spawn": [
+        4.0,
+        -3.4
+      ],
+      "areaOfficial": 6.0,
+      "areaModel": 6.0,
+      "dimensions": [
+        2,
+        3
+      ],
+      "confidence": "Demo ficticia"
+    },
+    {
+      "id": "bathroom-1",
+      "name": "Bano 1",
+      "polygon": [
+        [
+          5,
+          0
+        ],
+        [
+          6.5,
+          0
+        ],
+        [
+          6.5,
+          -2
+        ],
+        [
+          5,
+          -2
+        ]
+      ],
+      "spawn": [
+        5.75,
+        -1.0
+      ],
+      "areaOfficial": 3.0,
+      "areaModel": 3.0,
+      "dimensions": [
+        1.5,
+        2
+      ],
+      "confidence": "Demo ficticia"
+    },
+    {
+      "id": "bathroom-2",
+      "name": "Bano 2",
+      "polygon": [
+        [
+          6.5,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          -2
+        ],
+        [
+          6.5,
+          -2
+        ]
+      ],
+      "spawn": [
+        7.25,
+        -1.0
+      ],
+      "areaOfficial": 3.0,
+      "areaModel": 3.0,
+      "dimensions": [
+        1.5,
+        2
+      ],
+      "confidence": "Demo ficticia"
+    },
+    {
+      "id": "living-room",
+      "name": "Salon comedor cocina",
+      "polygon": [
+        [
+          5,
+          -2
+        ],
+        [
+          8,
+          -2
+        ],
+        [
+          8,
+          -5
+        ],
+        [
+          5,
+          -5
+        ]
+      ],
+      "spawn": [
+        7.5,
+        -2.45
+      ],
+      "areaOfficial": 9.0,
+      "areaModel": 9.0,
+      "dimensions": [
+        3,
+        3
+      ],
+      "confidence": "Demo ficticia"
+    },
+    {
+      "id": "terrace",
+      "name": "Terraza",
+      "polygon": [
+        [
+          8,
+          -4.4
+        ],
+        [
+          10,
+          -4.4
+        ],
+        [
+          10,
+          -2.2
+        ],
+        [
+          8,
+          -2.2
+        ]
+      ],
+      "spawn": [
+        8.4,
+        -3.3
+      ],
+      "areaOfficial": 4.4,
+      "areaModel": 4.4,
+      "dimensions": [
+        2,
+        2.2
+      ],
+      "confidence": "Demo ficticia"
+    }
+  ],
+  "colliders": [
+    {
+      "id": "Collider_Sofa_Main",
+      "furnitureId": "Sofa_Main",
+      "minHeight": 0,
+      "maxHeight": 0.75,
+      "polygon": [
+        [
+          5.55,
+          -4.825
+        ],
+        [
+          7.45,
+          -4.825
+        ],
+        [
+          7.45,
+          -4.075
+        ],
+        [
+          5.55,
+          -4.075
+        ]
+      ]
+    },
+    {
+      "id": "Collider_Coffee_Table",
+      "furnitureId": "Coffee_Table",
+      "minHeight": 0,
+      "maxHeight": 0.35,
+      "polygon": [
+        [
+          6.05,
+          -3.8
+        ],
+        [
+          6.95,
+          -3.8
+        ],
+        [
+          6.95,
+          -3.3
+        ],
+        [
+          6.05,
+          -3.3
+        ]
+      ]
+    },
+    {
+      "id": "Collider_Bed_Bedroom_1",
+      "furnitureId": "Bed_Bedroom_1",
+      "minHeight": 0,
+      "maxHeight": 0.55,
+      "polygon": [
+        [
+          0.65,
+          -5.15
+        ],
+        [
+          2.15,
+          -5.15
+        ],
+        [
+          2.15,
+          -3.25
+        ],
+        [
+          0.65,
+          -3.25
+        ]
+      ]
+    },
+    {
+      "id": "Collider_Bed_Bedroom_2",
+      "furnitureId": "Bed_Bedroom_2",
+      "minHeight": 0,
+      "maxHeight": 0.5,
+      "polygon": [
+        [
+          0.675,
+          -3.125
+        ],
+        [
+          2.025,
+          -3.125
+        ],
+        [
+          2.025,
+          -1.375
+        ],
+        [
+          0.675,
+          -1.375
+        ]
+      ]
+    },
+    {
+      "id": "Collider_Bed_Bedroom_3",
+      "furnitureId": "Bed_Bedroom_3",
+      "minHeight": 0,
+      "maxHeight": 0.5,
+      "polygon": [
+        [
+          0.675,
+          -1.425
+        ],
+        [
+          2.025,
+          -1.425
+        ],
+        [
+          2.025,
+          -0.075
+        ],
+        [
+          0.675,
+          -0.075
+        ]
+      ]
+    },
+    {
+      "id": "Collider_Desk_Studio",
+      "furnitureId": "Desk_Studio",
+      "minHeight": 0,
+      "maxHeight": 0.75,
+      "polygon": [
+        [
+          3.6,
+          -0.825
+        ],
+        [
+          4.7,
+          -0.825
+        ],
+        [
+          4.7,
+          -0.275
+        ],
+        [
+          3.6,
+          -0.275
+        ]
+      ]
+    },
+    {
+      "id": "Collider_Terrace_Table",
+      "furnitureId": "Terrace_Table",
+      "minHeight": 0,
+      "maxHeight": 0.72,
+      "polygon": [
+        [
+          8.625,
+          -3.625
+        ],
+        [
+          9.375,
+          -3.625
+        ],
+        [
+          9.375,
+          -2.875
+        ],
+        [
+          8.625,
+          -2.875
+        ]
+      ]
+    },
+    {
+      "id": "Collider_Plant_Terrace",
+      "furnitureId": "Plant_Terrace",
+      "minHeight": 0,
+      "maxHeight": 0.9,
+      "polygon": [
+        [
+          9.425,
+          -2.825
+        ],
+        [
+          9.775,
+          -2.825
+        ],
+        [
+          9.775,
+          -2.475
+        ],
+        [
+          9.425,
+          -2.475
+        ]
+      ]
+    }
+  ],
+  "furniture": [
+    {
+      "id": "Sofa_Main",
+      "name": "Sofa Main",
+      "room": "living-room",
+      "type": "sofa",
+      "objectName": "Sofa_Main",
+      "width": 1.9,
+      "depth": 0.75,
+      "height": 0.75,
+      "visible": true,
+      "position": [
+        6.5,
+        0.375,
+        -4.45
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Coffee_Table",
+      "name": "Coffee Table",
+      "room": "living-room",
+      "type": "table",
+      "objectName": "Coffee_Table",
+      "width": 0.9,
+      "depth": 0.5,
+      "height": 0.35,
+      "visible": true,
+      "position": [
+        6.5,
+        0.175,
+        -3.55
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Bed_Bedroom_1",
+      "name": "Bed Bedroom 1",
+      "room": "bedroom-1",
+      "type": "bed",
+      "objectName": "Bed_Bedroom_1",
+      "width": 1.5,
+      "depth": 1.9,
+      "height": 0.55,
+      "visible": true,
+      "position": [
+        1.4,
+        0.275,
+        -4.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Bed_Bedroom_2",
+      "name": "Bed Bedroom 2",
+      "room": "bedroom-2",
+      "type": "bed",
+      "objectName": "Bed_Bedroom_2",
+      "width": 1.35,
+      "depth": 1.75,
+      "height": 0.5,
+      "visible": true,
+      "position": [
+        1.35,
+        0.25,
+        -2.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Bed_Bedroom_3",
+      "name": "Bed Bedroom 3",
+      "room": "bedroom-3",
+      "type": "bed",
+      "objectName": "Bed_Bedroom_3",
+      "width": 1.35,
+      "depth": 1.35,
+      "height": 0.5,
+      "visible": true,
+      "position": [
+        1.35,
+        0.25,
+        -0.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Desk_Studio",
+      "name": "Desk Studio",
+      "room": "bedroom-4",
+      "type": "desk",
+      "objectName": "Desk_Studio",
+      "width": 1.1,
+      "depth": 0.55,
+      "height": 0.75,
+      "visible": true,
+      "position": [
+        4.15,
+        0.375,
+        -0.55
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Terrace_Table",
+      "name": "Terrace Table",
+      "room": "terrace",
+      "type": "table",
+      "objectName": "Terrace_Table",
+      "width": 0.75,
+      "depth": 0.75,
+      "height": 0.72,
+      "visible": true,
+      "position": [
+        9.0,
+        0.36,
+        -3.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "Plant_Terrace",
+      "name": "Plant Terrace",
+      "room": "terrace",
+      "type": "plant",
+      "objectName": "Plant_Terrace",
+      "width": 0.35,
+      "depth": 0.35,
+      "height": 0.9,
+      "visible": true,
+      "position": [
+        9.6,
+        0.45,
+        -2.65
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "entry": [
+    4.0,
+    -4.6
+  ],
+  "kitchenSpawn": [
+    7.35,
+    -2.75
+  ],
+  "precisionLabel": "Demo ficticia sin datos privados"
+}
