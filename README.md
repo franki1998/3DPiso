@@ -1,69 +1,69 @@
-# 3DPiso
+# 3DPiso — Interactive 3D Home Viewer
 
-Plantilla abierta para convertir un piso modelado en Blender en una web 3D navegable con React, Three.js y Vite.
+Open portfolio project for turning a Blender scene into a navigable 3D web experience using React, Three.js and Vite.
 
-Este repositorio es una demo educativa y de portfolio. La vivienda incluida es ficticia: no contiene planos, direcciones, modelos ni datos privados de una vivienda real.
+The included home is fictional. The repository contains no plans, addresses, models or personal data from a real property.
 
-## Demo local
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abre `http://127.0.0.1:5173/`.
+Open `http://127.0.0.1:5173/`.
 
-Para compilar:
+Production build:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Que incluye
+## Features
 
-- Visor web en React + Three.js.
-- Modo recorrido en primera persona con WASD, raton y colisiones.
-- Vista general orbital y vista de planta.
-- Medicion entre dos puntos del modelo.
-- Seleccion y ocultacion de mobiliario por estancia.
-- Minimap, controles moviles y exportacion de estado JSON.
-- Contrato `public/models/world.json` para conectar Blender con la web.
-- Demo 3D ficticia generada desde `scripts/generate_demo_scene.py`.
+- React and Three.js 3D viewer.
+- First-person navigation with WASD, mouse controls and collisions.
+- Orbital overview and floor-plan views.
+- Point-to-point measurements.
+- Furniture selection and visibility controls by room.
+- Minimap, mobile controls and JSON state export.
+- `public/models/world.json` contract connecting Blender assets to the web viewer.
+- Fictional demo scene generated through `scripts/generate_demo_scene.py`.
 
-## Flujo recomendado
+## Blender-to-web workflow
 
-1. Modela o reconstruye tu vivienda en Blender.
-2. Separa arquitectura y mobiliario por piezas con IDs estables.
-3. Exporta GLB y un `world.json` con habitaciones, puntos de aparicion y colisiones.
-4. Sustituye los archivos en `public/models/`.
-5. Ejecuta `npm run build` y publica la carpeta generada o despliega en Vercel.
+1. Model or reconstruct the space in Blender.
+2. Separate architecture and furniture into components with stable IDs.
+3. Export the GLB model and a `world.json` containing rooms, spawn points and collision data.
+4. Replace the example files under `public/models/`.
+5. Run `npm run build` and deploy the generated application.
 
-La guia paso a paso esta en `docs/`.
+Detailed guidance is available under `docs/`.
 
-## Archivos clave
+## Key files
 
 ```text
-src/components/House.tsx       Carga GLB y raycast de seleccion/medicion
-src/controls/Navigation.tsx    Camaras, teclado, raton y tactil
-src/controls/collision.ts      Colisiones 2D puras y testeables
-src/store.ts                   Estado global del visor
-public/models/world.json       Datos metricos y de navegacion
-scripts/generate_demo_scene.py Genera la demo ficticia con Blender
+src/components/House.tsx       GLB loading, selection and measurement raycasting
+src/controls/Navigation.tsx    Camera, keyboard, mouse and touch controls
+src/controls/collision.ts      Pure, testable 2D collision logic
+src/store.ts                   Viewer state
+public/models/world.json       Metric and navigation data
+scripts/generate_demo_scene.py Fictional Blender demo generator
 ```
 
-## Privacidad
+## Privacy
 
-No subas a un repositorio publico:
+Do not publish:
 
-- planos con direccion, bloque, portal, planta o letra;
-- fotografias originales si identifican la vivienda;
-- GLB o `.blend` del piso real si no quieres hacerlo publico;
-- logs con rutas locales, cuentas, emails o tokens;
-- backups completos del proyecto.
+- plans containing an address, building, entrance, floor or unit;
+- original photographs that identify a real property;
+- real `.blend` or GLB files unless they are intended to be public;
+- logs containing local paths, accounts, emails or tokens;
+- complete project backups.
 
-Para un repo publico, usa una demo ficticia o anonimizada como la incluida aqui.
+Use a fictional or properly anonymised demo for public repositories, as this project does.
 
-## Licencia
+## License
 
-MIT. Revisa la licencia de cualquier modelo, textura o plano que anadas por tu cuenta.
+MIT. Check the licence of any third-party model, texture or plan before adding it.
