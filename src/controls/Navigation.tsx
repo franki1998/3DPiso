@@ -9,6 +9,7 @@ export function Navigation() {
   const mode = useApp(s => s.mode), { camera, gl, size } = useThree()
   const keys = useRef(new Set<string>()), speed = useRef<Vec2>([0, 0]), touch = useRef<{ id: number; x: number; y: number } | null>(null)
   useEffect(() => {
+    if (mode === 'edit') { camera.position.set(6.4, 13.5, 6.8); camera.up.set(0, 1, 0); camera.lookAt(6.4, 0, -3.7) }
     if (mode === 'overview') { const f = Math.max(1, .95 * size.height / size.width); camera.position.set(6.4 + 8.6 * f, 12 * f, -3.7 + 10.7 * f); camera.up.set(0, 1, 0); camera.lookAt(6.4, 0, -3.7) }
     if (mode === 'plan') { camera.position.set(6.4, 25, -3.7); camera.up.set(0, 0, -1); camera.lookAt(6.4, 0, -3.7) }
     keys.current.clear(); speed.current = [0, 0]
@@ -19,6 +20,11 @@ export function Navigation() {
       if (e.code === 'Escape') { document.exitPointerLock?.(); clear(); return }
       if (!document.pointerLockElement && /INPUT|SELECT|TEXTAREA|BUTTON/.test((e.target as HTMLElement)?.tagName)) return
       if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) { keys.current.add(e.code); e.preventDefault() }
+      const s = useApp.getState()
+      if (e.ctrlKey && e.code === 'KeyZ') { e.preventDefault(); e.shiftKey ? s.redo() : s.undo(); return }
+      if (e.ctrlKey && e.code === 'KeyD') { e.preventDefault(); s.duplicateSelected(); return }
+      if (e.code === 'Delete' || e.code === 'Backspace') { if (s.selected) { e.preventDefault(); s.deleteSelected() } }
+      if (e.code === 'KeyR') { if (s.selected) { e.preventDefault(); s.rotateSelected(e.shiftKey ? -1 : 1) } }
     }
     const up = (e: KeyboardEvent) => keys.current.delete(e.code)
     const mouse = (e: MouseEvent) => { if (document.pointerLockElement === gl.domElement) useApp.getState().look(e.movementX, e.movementY) }
@@ -60,8 +66,8 @@ export function Navigation() {
     camera.position.set(p[0], s.world.parameters.CAMERA_HEIGHT, p[1])
   })
   return <>
-    <PerspectiveCamera makeDefault={mode !== 'plan'} fov={65} near={.04} far={150} />
+    <PerspectiveCamera makeDefault={mode !== 'plan'} fov={mode === 'edit' ? 45 : 65} near={.04} far={150} />
     <OrthographicCamera makeDefault={mode === 'plan'} zoom={Math.max(15, Math.min((size.width - 60) / 14, (size.height - 100) / 10))} near={.1} far={150} />
-    {mode !== 'walk' && <OrbitControls key={mode} target={[6.4, 0, -3.7]} enableRotate={mode === 'overview'} minDistance={5} maxDistance={60} minZoom={10} maxZoom={180} maxPolarAngle={Math.PI / 2.05} makeDefault />}
+    {mode !== 'walk' && <OrbitControls key={mode} target={[6.4, 0, -3.7]} enableRotate={mode !== 'plan'} minDistance={5} maxDistance={60} minZoom={10} maxZoom={180} maxPolarAngle={Math.PI / 2.05} makeDefault />}
   </>
 }

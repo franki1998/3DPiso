@@ -21,8 +21,8 @@ export function Diagnostics() {
         const names: string[] = []; scene.traverseVisible(o => { if ('isMesh' in o) names.push(o.name) }); return names
       },
     }
-    Object.assign(window, { __THREEDPISO_QA__: api })
-    return () => { delete (window as unknown as Record<string, unknown>).__THREEDPISO_QA__ }
+    Object.assign(window, { __HOME_PLANNER_QA__: api })
+    return () => { delete (window as unknown as Record<string, unknown>).__HOME_PLANNER_QA__ }
   }, [camera, gl, scene])
   return null
 }

@@ -1,10 +1,24 @@
-# 3DPiso — Interactive 3D Home Viewer
+# 3DPiso — 3D Home Planner
 
-Open portfolio project for turning a Blender scene into a navigable 3D web experience using React, Three.js and Vite.
+Open portfolio project for turning a synthetic apartment model into an interactive 3D interior planner using React, TypeScript, Vite, Three.js, React Three Fiber, Drei and Zustand.
 
-The included home is fictional. The repository contains no plans, addresses, models or personal data from a real property.
+The included apartment is fictional. The repository contains no plans, addresses, models, exact geometry or personal data from a real property.
 
-## Run locally
+## Features
+
+- Edit, plan, overview and first-person walkthrough modes.
+- Parametric furniture catalog with real metric dimensions.
+- Click-to-place, drag-to-move and rotate furniture.
+- Movement and rotation snapping.
+- Selection ring and object properties panel.
+- Hide, duplicate, delete, undo and redo.
+- Save multiple layouts in `localStorage`.
+- Import/export layout JSON.
+- Measurement tool in meters.
+- Mobile joystick and touch look.
+- Synthetic Blender-generated demo GLB assets.
+
+## Run Locally
 
 ```bash
 npm install
@@ -13,57 +27,65 @@ npm run dev
 
 Open `http://127.0.0.1:5173/`.
 
-Production build:
-
 ```bash
+npm test
 npm run build
 npm run preview
 ```
 
-## Features
+## Blender-To-Web Workflow
 
-- React and Three.js 3D viewer.
-- First-person navigation with WASD, mouse controls and collisions.
-- Orbital overview and floor-plan views.
-- Point-to-point measurements.
-- Furniture selection and visibility controls by room.
-- Minimap, mobile controls and JSON state export.
-- `public/models/world.json` contract connecting Blender assets to the web viewer.
-- Fictional demo scene generated through `scripts/generate_demo_scene.py`.
-
-## Blender-to-web workflow
-
-1. Model or reconstruct the space in Blender.
-2. Separate architecture and furniture into components with stable IDs.
-3. Export the GLB model and a `world.json` containing rooms, spawn points and collision data.
+1. Model or reconstruct the space in Blender, or generate simple architecture from JSON.
+2. Keep a metric source of truth for rooms, walls, spawns and collision polygons.
+3. Export GLB models and `public/models/world.json`.
 4. Replace the example files under `public/models/`.
-5. Run `npm run build` and deploy the generated application.
+5. Run `npm run build` and deploy the generated app.
 
-Detailed guidance is available under `docs/`.
+The runtime contract lives in `public/models/world.json`:
 
-## Key files
+- `rooms`: polygons, names, spawns and areas.
+- `outer`: walkable envelope.
+- `colliders`: walls, fixed elements and generated furniture boxes.
+- `furniture`: initial editable furniture.
+- `parameters`: player height, camera height and movement radius.
+
+## Key Files
 
 ```text
-src/components/House.tsx       GLB loading, selection and measurement raycasting
+src/components/House.tsx       GLB loading, editable furniture and measurement raycasting
+src/components/Sidebar.tsx     Catalog, object panel, layouts and import/export
 src/controls/Navigation.tsx    Camera, keyboard, mouse and touch controls
 src/controls/collision.ts      Pure, testable 2D collision logic
-src/store.ts                   Viewer state
+src/store.ts                   Planner state, undo/redo and local layouts
+src/data/catalog.ts            Parametric furniture catalog
 public/models/world.json       Metric and navigation data
 scripts/generate_demo_scene.py Fictional Blender demo generator
 ```
 
-## Privacy
+## Demo Assets
 
-Do not publish:
+Regenerate the synthetic demo with Blender:
 
-- plans containing an address, building, entrance, floor or unit;
-- original photographs that identify a real property;
-- real `.blend` or GLB files unless they are intended to be public;
-- logs containing local paths, accounts, emails or tokens;
-- complete project backups.
+```bash
+blender --background --python scripts/generate_demo_scene.py
+```
+
+The demo is intentionally simple and different from any real apartment.
+
+## Privacy Checklist
+
+Before publishing your own fork, remove:
+
+- original floorplan photos;
+- addresses, names, block, floor or unit identifiers;
+- exact real geometry if the home must stay private;
+- EXIF metadata;
+- `.env`, tokens and hosting credentials;
+- local absolute paths;
+- full project backups.
 
 Use a fictional or properly anonymised demo for public repositories, as this project does.
 
 ## License
 
-MIT. Check the licence of any third-party model, texture or plan before adding it.
+MIT. If you add third-party assets, keep their license notices.

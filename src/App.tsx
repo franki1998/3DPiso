@@ -32,7 +32,7 @@ export default function App() {
   }, [])
   if (error) return <div className="load-error"><h1>No se pudo cargar el proyecto</h1><p>{error}</p><button onClick={() => location.reload()}>Reintentar</button></div>
   return <div className="app">
-    <header><a className="brand" href="#" aria-label="3DPiso inicio">3DPISO<span>DEMO / WEB 3D</span></a><nav aria-label="Modos de cámara">{([['walk', 'Recorrer'], ['overview', 'Vista general'], ['plan', 'Planta']] as const).map(([id, label]) => <button key={id} aria-pressed={mode === id} className={mode === id ? 'active' : ''} onClick={() => useApp.getState().setMode(id)}>{label}</button>)}</nav><span className="project-mark">PLANTILLA <b>1:1</b></span></header>
+    <header><a className="brand" href="#" aria-label="Home planner inicio">PISO 3D<span>INTERIOR PLANNER</span></a><nav aria-label="Modos de cámara">{([['edit', 'Editar'], ['walk', 'Recorrer'], ['plan', 'Planta'], ['overview', 'Vista general']] as const).map(([id, label]) => <button key={id} aria-pressed={mode === id} className={mode === id ? 'active' : ''} onClick={() => useApp.getState().setMode(id)}>{label}</button>)}</nav><span className="project-mark">ESCALA <b>1:1</b></span></header>
     <main className={panel ? 'layout' : 'layout folded'}>
       {world && panel && <Sidebar />}
       <div className="viewer">
@@ -56,7 +56,7 @@ export default function App() {
         }}>Entrar en recorrido <small>Ratón para mirar · WASD para caminar · ESC para salir</small></button>}
         {locked && <div className="crosshair">+</div>}
         <TouchControls />
-        <div className="viewer-footer"><span>{mode === 'walk' ? 'Persona 1,80 m · ojos 1,70 m' : mode === 'plan' ? 'Vista cenital · rueda para acercar' : 'Arrastra para girar · rueda para acercar'}</span><span>Demo ficticia · sustituye los modelos por los tuyos</span></div>
+        <div className="viewer-footer"><span>{mode === 'walk' ? 'Persona 1,80 m · ojos 1,70 m' : mode === 'edit' ? 'Arrastra muebles · R rota · Ctrl+Z deshace' : mode === 'plan' ? 'Vista cenital · rueda para acercar' : 'Arrastra para girar · rueda para acercar'}</span><span>Medidas calculadas desde plano · no ejecutivo</span></div>
       </div>
     </main>
   </div>
